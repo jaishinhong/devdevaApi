@@ -35,6 +35,7 @@ app.get("/users/:id", (req, res) => {
 app.post("/users", (req, res) => {
     const user = req.body;
     users.push(user);
+    res.status(200).json({ message: "created successfully" });
 });
 
 app.put("/users/:id", (req, res) => {
@@ -43,7 +44,7 @@ app.put("/users/:id", (req, res) => {
     const index = users.findIndex((el) => el.id == id);
     users[index] = { ...users[index], ...body };
 
-    res.status(200).json({ message: "update successfully" });
+    res.status(200).json({ message: "updated successfully" });
 });
 
 app.delete("/users/:id", (req, res) => {
@@ -51,7 +52,7 @@ app.delete("/users/:id", (req, res) => {
     const newUsers = users.filter((el) => el.id != id);
     users = newUsers;
     console.log(users);
-    res.status(200).json({ message: "delete successfully" });
+    res.status(200).json({ message: "deleted successfully" });
 });
 
 const port = 8000;
