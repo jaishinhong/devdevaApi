@@ -1,0 +1,5 @@
+SELECT * FROM store WHERE region = "East"
+SELECT * FROM sale_fact JOIN store ON sale_fact.store_key = store.store_key JOIN product on sale_fact.product_key = product.product_key where store.city = "NewYork"
+SELECT SUM(sale_fact.profit) FROM sale_fact JOIN store ON sale_fact.store_key = store.store_key where store.city = "NewYork"
+DELETE FROM product where brand = "Wolf"
+UPDATE product set brand = "W" where description = "Toy story"
